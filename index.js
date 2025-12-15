@@ -955,9 +955,7 @@ async function runServer() {
       }
     });
 
-    // -----------------------------
     // CREATE STRIPE CHECKOUT SESSION
-    // -----------------------------
     app.post(
       "/create-checkout-session",
       verifyToken,
