@@ -1,4 +1,3 @@
-// index.js
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
@@ -7,7 +6,6 @@ const jwt = require("jsonwebtoken");
 
 require("dotenv").config();
 
-// Optional: stripe (install করলে চালবে)
 let stripe = null;
 if (process.env.STRIPE_SECRET_KEY) {
   stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
@@ -19,7 +17,6 @@ const app = express();
 // Middleware
 app.use(cors());
 
-// ⚠️ IMPORTANT: Webhook MUST use raw body - add BEFORE express.json()
 app.post(
   "/webhook",
   express.raw({ type: "application/json" }),
