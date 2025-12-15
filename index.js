@@ -92,7 +92,6 @@ let db;
 
 const JWT_SECRET = process.env.JWT_SECRET || "change_this_secret";
 
-// ----------------- Helpers -----------------
 
 // token create
 function createToken(user) {
@@ -107,7 +106,6 @@ function createToken(user) {
 const admin = require("firebase-admin");
 let serviceAccount;
 try {
-  // serviceAccount = require("./assetverse-client-firebasse-adminsdk.json");
 
   // const serviceAccount = require("./firebase-admin-key.json");
 
