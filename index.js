@@ -55,7 +55,6 @@ app.post(
         status: "completed",
       });
 
-      // Update HR packageLimit immediately
       const pkg = await packages.findOne({ _id: new ObjectId(packageId) });
       if (pkg) {
         await users.updateOne(
@@ -91,7 +90,6 @@ const client = new MongoClient(uri, {
 
 let db;
 
-// JWT secret (env এ সেট করতে হবে)
 const JWT_SECRET = process.env.JWT_SECRET || "change_this_secret";
 
 // ----------------- Helpers -----------------
