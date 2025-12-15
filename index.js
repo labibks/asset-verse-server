@@ -553,7 +553,6 @@ async function runServer() {
           { $set: { note } }
         );
 
-        // Ignore modifiedCount 0 for unchanged note
         res.json({
           success: true,
           message: result.modifiedCount > 0 ? "Note updated" : "Note unchanged",
@@ -624,8 +623,6 @@ async function runServer() {
     );
 
     
-    // HR: reject request
-    // POST /requests/:id/reject
     app.post(
       "/requests/:id/reject",
       verifyToken,
@@ -659,9 +656,7 @@ async function runServer() {
     );
 
     // ------------------ RETURN ASSET (Employee) ------------------
-    // -----------------------------
     // GET assigned assets for logged-in user
-    // -----------------------------
     app.get("/assignedAssets", verifyToken, async (req, res) => {
       try {
         const userEmail = req.currentUser.email;
@@ -677,9 +672,7 @@ async function runServer() {
       }
     });
 
-    // -----------------------------
     // RETURN assigned asset
-    // -----------------------------
     app.post("/assigned/:id/return", verifyToken, async (req, res) => {
       try {
         const id = req.params.id;
