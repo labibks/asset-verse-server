@@ -549,7 +549,7 @@ async function runServer() {
           return res.status(400).json({ error: "Note cannot be empty" });
 
         const result = await requests.updateOne(
-          { _id: new ObjectId(id) }, // remove requesterEmail filter
+          { _id: new ObjectId(id) }, 
           { $set: { note } }
         );
 
@@ -581,8 +581,6 @@ async function runServer() {
       }
     });
 
-    // HR: get all requests for their company
-    // GET /requests/hr
     // HR: fetch all requests
     app.get("/requests/hr", verifyToken, verifyHR, async (req, res) => {
       try {
@@ -595,7 +593,6 @@ async function runServer() {
       }
     });
 
-    // HR: update request status
 
     app.patch(
       "/requests/:id/:action",
