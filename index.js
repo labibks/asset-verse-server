@@ -182,10 +182,8 @@ async function runServer() {
     console.log(" Collections ready!");
 
     // ------------------------------
-    //  Seed Data (Auto Insert, but hash passwords)
     // ------------------------------
     async function seedData() {
-      // USERS (hash password before insert)
       if ((await users.countDocuments()) === 0) {
         const salt = await bcrypt.genSalt(10);
         const hrPassword = await bcrypt.hash("123456", salt);
@@ -211,7 +209,7 @@ async function runServer() {
             createdAt: new Date(),
           },
         ]);
-        console.log("🌱 Users seeded (passwords hashed)");
+        console.log(" Users seeded (passwords hashed)");
       }
 
       // PACKAGES
