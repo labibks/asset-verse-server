@@ -168,9 +168,9 @@ async function runServer() {
   try {
     await client.connect();
     db = client.db("AssetVerseDB");
-    console.log("✅ Database connected successfully!");
+    console.log(" Database connected successfully!");
 
-    // 2️⃣ Create Collections variables
+    // Create Collections variables
     const users = db.collection("users");
     const affiliations = db.collection("employeeAffiliations");
     const assets = db.collection("assets");
