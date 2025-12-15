@@ -166,7 +166,6 @@ const validateToken = (req, res, next) => {
 // ----------------- Main Function -----------------
 async function runServer() {
   try {
-    // 1️⃣ Connect to DB
     await client.connect();
     db = client.db("AssetVerseDB");
     console.log("✅ Database connected successfully!");
