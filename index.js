@@ -271,13 +271,12 @@ async function runServer() {
             dateAdded: new Date(),
           },
         ]);
-        console.log("🌱 Assets seeded");
+        console.log(" Assets seeded");
       }
     }
 
     await seedData();
 
-    // Routes
 
     // Root
     app.get("/", (req, res) => {
@@ -286,7 +285,6 @@ async function runServer() {
 
     // ------------------ AUTH (Register / Login) ------------------
 
-    // Register (employee or hr) -> body must include role: "employee" or "hr"
     app.post("/auth/register", async (req, res) => {
       try {
         const {
