@@ -277,9 +277,7 @@ async function runServer() {
 
     await seedData();
 
-    // ------------------------------
-    // 4️⃣ Routes
-    // ------------------------------
+    // Routes
 
     // Root
     app.get("/", (req, res) => {
