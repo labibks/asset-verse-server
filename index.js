@@ -107,7 +107,6 @@ const admin = require("firebase-admin");
 let serviceAccount;
 try {
 
-  // const serviceAccount = require("./firebase-admin-key.json");
 
   const decoded = Buffer.from(process.env.FB_SERVICE_KEY, "base64").toString(
     "utf8"
@@ -117,10 +116,10 @@ try {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
   });
-  console.log("✅ Firebase admin initialized");
+  console.log(" Firebase admin initialized");
 } catch (err) {
   console.warn(
-    "⚠️ Firebase service account not found — skipping admin.initializeApp(). Provide `assetverse-client-firebasse-adminsdk.json` in the project root to enable Firebase admin features."
+    " Firebase service account not found — skipping admin.initializeApp(). Provide `assetverse-client-firebasse-adminsdk.json` in the project root to enable Firebase admin features."
   );
 }
 // verifyToken middleware
