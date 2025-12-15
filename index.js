@@ -179,10 +179,10 @@ async function runServer() {
     const packages = db.collection("packages");
     const payments = db.collection("payments");
 
-    console.log("✅ Collections ready!");
+    console.log(" Collections ready!");
 
     // ------------------------------
-    // 3️⃣ Seed Data (Auto Insert, but hash passwords)
+    //  Seed Data (Auto Insert, but hash passwords)
     // ------------------------------
     async function seedData() {
       // USERS (hash password before insert)
