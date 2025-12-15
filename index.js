@@ -454,7 +454,6 @@ async function runServer() {
       try {
         const id = req.params.id;
 
-        // Delete asset by _id only
         const result = await assets.deleteOne({ _id: new ObjectId(id) });
 
         if (result.deletedCount === 0) {
@@ -472,15 +471,12 @@ async function runServer() {
 
     // ------------------ REQUESTS ------------------
 
-    // Employee: create request
-    // POST /requests
     app.post("/requests", verifyToken, async (req, res) => {
       try {
         const { assetId, note } = req.body;
 
         const employee = req.currentUser;
 
-        // Find HR of same company
         const hr = await users.findOne({
           role: "hr",
           companyName: employee.companyName,
