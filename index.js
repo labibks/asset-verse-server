@@ -181,8 +181,6 @@ async function runServer() {
 
     console.log(" Collections ready!");
 
-    // ------------------------------
-    // ------------------------------
     async function seedData() {
       if ((await users.countDocuments()) === 0) {
         const salt = await bcrypt.genSalt(10);
@@ -246,7 +244,7 @@ async function runServer() {
             ],
           },
         ]);
-        console.log("🌱 Packages seeded");
+        console.log(" Packages seeded");
       }
 
       // ASSETS
