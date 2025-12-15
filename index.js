@@ -378,7 +378,6 @@ async function runServer() {
     // Protected example: get current user
     app.get("/me", verifyToken, async (req, res) => {
       const user = req.currentUser;
-      // Do not send password
       delete user.password;
       res.json({ user });
     });
@@ -390,11 +389,9 @@ async function runServer() {
 
     // ------------------ ASSETS ------------------
 
-    // Public: get assets (with optional query ?available=true)
 
     const { ObjectId } = require("mongodb");
 
-    // Get all assets (HR + employee)
     app.get("/assets", verifyToken, async (req, res) => {
       try {
         const list = await assets.find().toArray();
